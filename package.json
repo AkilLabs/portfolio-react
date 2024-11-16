@@ -1,0 +1,40 @@
+{
+  "name": "marieflor.dev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettify": "prettier --write \"./**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@next/font": "13.1.6",
+    "@types/node": "18.11.19",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "@vercel/analytics": "^0.1.8",
+    "classnames": "^2.3.2",
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.6",
+    "gsap": "^3.11.4",
+    "logrocket": "^3.0.1",
+    "lucide-react": "^0.460.0",
+    "next": "13.1.6",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-responsive": "^9.0.2",
+    "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/gsap": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.2",
+    "tailwindcss": "^3.2.4"
+  }
+}
