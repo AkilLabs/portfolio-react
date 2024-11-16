@@ -1,21 +1,33 @@
 import React from 'react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { projects } from "./Float/config";
 import Float from "./Float/Float";
 import { SectionLayout } from "./Layout";
 import { SplitText } from "./SplitText";
 import { Heading, SubHeading } from "./Typography";
 import { Align } from "./Typography/types";
-import { Github, Linkedin, Mail } from 'lucide-react';
+type ProjectCardProps = {
+  title: string;
+  description: string;
+  image: string;
+  githubUrl: string;
+  liveUrl: string;
+  tools: string[];
+};
 
-const ProjectCard = ({ title, description, image, githubUrl, liveUrl, tools }) => (
+const ProjectCard: React.FC<ProjectCardProps> = ({ 
+  title, 
+  description, 
+  image, 
+  githubUrl, 
+  liveUrl, 
+  tools 
+}) => (
   <div className="w-full mb-16 relative">
-    <Heading size="sm" dark className="font-extrabold mb-4">
-      <SplitText text={title} />
-    </Heading>
     <div className="group relative">
       <div className="absolute inset-0 backdrop-blur-md rounded-lg" />
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-lg opacity-20" />
-      
+
       <div className="relative border border-white/10 rounded-lg shadow-lg overflow-hidden 
                       hover:shadow-xl transition-all duration-300">
         <img 
@@ -72,6 +84,7 @@ const ProjectCard = ({ title, description, image, githubUrl, liveUrl, tools }) =
     </div>
   </div>
 );
+
 
 const Footer = () => (
   <div className="w-full mt-16 border-t border-white/10">
@@ -149,8 +162,6 @@ export default function Writing() {
             <ProjectCard key={index} {...project} />
           ))}
         </div>
-
-
 
         <Footer />
       </div>
