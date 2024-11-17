@@ -6,6 +6,8 @@ import { SectionLayout } from "./Layout";
 import { SplitText } from "./SplitText";
 import { Heading, SubHeading } from "./Typography";
 import { Align } from "./Typography/types";
+
+// ProjectCard Component
 type ProjectCardProps = {
   title: string;
   description: string;
@@ -30,12 +32,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
       <div className="relative border border-white/10 rounded-lg shadow-lg overflow-hidden 
                       hover:shadow-xl transition-all duration-300">
-        <img 
-          src={image} 
-          alt={`${title} Preview`}
-          className="w-full h-64 object-cover"
-        />
+        <div className="relative w-full h-64">
+          <img
+            src={image}
+            alt={`${title} Preview`}
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="p-6 backdrop-blur-sm bg-transparent">
+          <h3 className="text-white text-xl font-semibold mb-2">{title}</h3>
           <p className="text-white mb-4">{description}</p>
           
           <div className="mb-6">
@@ -43,8 +48,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               {tools?.map((tool, index) => (
                 <span 
                   key={index}
-                  className="px-3 py-1 text-sm bg-purple-600/20 text-purple-300 
-                           rounded-full border border-purple-600/30"
+                  className="px-3 py-1 text-sm bg-[#DE5055]/20 text-[#DE5055] 
+                           rounded-full border border-[#DE5055]/30"
                 >
                   {tool}
                 </span>
@@ -57,10 +62,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-2 bg-purple-600/80 hover:bg-purple-600 
+              className="w-full sm:w-auto px-6 py-2 bg-[#DE5055]/80 hover:bg-[#DE5055] 
                         text-white font-semibold rounded-lg shadow-md 
                         backdrop-blur-sm transition-all duration-300
-                        hover:shadow-purple-500/20 hover:shadow-lg
+                        hover:shadow-[#DE5055]/20 hover:shadow-lg
                         text-center"
             >
               GitHub
@@ -69,11 +74,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-2 bg-transparent hover:bg-purple-600/10 
-                        text-purple-600 font-semibold rounded-lg shadow-md 
+              className="w-full sm:w-auto px-6 py-2 bg-transparent hover:bg-[#DE5055]/10 
+                        text-[#DE5055] font-semibold rounded-lg shadow-md 
                         backdrop-blur-sm transition-all duration-300
-                        border-2 border-purple-600/80 hover:border-purple-600
-                        hover:shadow-purple-500/20 hover:shadow-lg
+                        border-2 border-[#DE5055]/80 hover:border-[#DE5055]
+                        hover:shadow-[#DE5055]/20 hover:shadow-lg
                         text-center"
             >
               View
@@ -85,8 +90,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   </div>
 );
 
-
-const Footer = () => (
+// Footer Component
+const Footer: React.FC = () => (
   <div className="w-full mt-16 border-t border-white/10">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
@@ -97,7 +102,7 @@ const Footer = () => (
             href="https://github.com/AkilLabs"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-purple-400 transition-colors duration-300 flex items-center space-x-2 group"
+            className="text-white/70 hover:text-[#DE5055] transition-colors duration-300 flex items-center space-x-2 group"
           >
             <Github className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             <span className="hidden sm:inline">GitHub</span>
@@ -107,15 +112,15 @@ const Footer = () => (
             href="https://linkedin.com/in/akil-a-"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-purple-400 transition-colors duration-300 flex items-center space-x-2 group"
+            className="text-white/70 hover:text-[#DE5055] transition-colors duration-300 flex items-center space-x-2 group"
           >
             <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             <span className="hidden sm:inline">LinkedIn</span>
           </a>
           
           <a
-            href="mailto:your.akilaskarali@gmail.com"
-            className="text-white/70 hover:text-purple-400 transition-colors duration-300 flex items-center space-x-2 group"
+            href="mailto:akilaskarali@gmail.com"
+            className="text-white/70 hover:text-[#DE5055] transition-colors duration-300 flex items-center space-x-2 group"
           >
             <Mail className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             <span className="hidden sm:inline">Email</span>
@@ -130,12 +135,13 @@ const Footer = () => (
   </div>
 );
 
+// Main Writing Component
 export default function Writing() {
   const projectsList = [
     {
       title: "InterviewIQ AI",
       description: "Personalized AI Interview Preparation",
-      image: "/images/interviewiq-preview.jpg",
+      image: "/images/iq.png",  // First project image
       githubUrl: "https://github.com/AkilLabs/Interview-IQ",
       liveUrl: "https://interviewiq.yourdomain.com",
       tools: ["Python", "GenAI", "Streamlit", "Gemini", "CrewAI"]
@@ -143,7 +149,7 @@ export default function Writing() {
     {
       title: "Project 2",
       description: "Coming soon.",
-      image: "/api/placeholder/800/400",
+      image: "/images/profile.jpg",  // Second project image
       githubUrl: "https://github.com/yourusername/project2",
       liveUrl: "https://project2.yourdomain.com",
       tools: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"]

@@ -12,7 +12,7 @@ export default function SiteTitle({ isHome }: { isHome: boolean }) {
       })}
     >
       <span className="w-[105px] md:w-[120px] md:group-hover:hidden">
-        marieflor.dev
+        AkilLabs
       </span>
 
       <div className="hidden w-[140px] space-x-4 text-white md:group-hover:flex">

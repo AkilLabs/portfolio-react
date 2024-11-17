@@ -2,7 +2,6 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Menu from "./Menu";
-import ModeToggle from "./ModeToggle";
 import SiteTitle from "./SiteTitle";
 import { Page } from "./types";
 
@@ -29,8 +28,9 @@ export default function Header() {
         <nav className="absolute bottom-4 left-1/2 z-20 w-[90%] -translate-x-1/2 items-center rounded-3xl bg-pink px-8 py-2 dark:bg-orange/50 md:relative md:bottom-0 md:left-0 md:w-auto md:translate-x-0 md:bg-transparent dark:md:bg-transparent">
           <Menu currentPath={currentPath} />
         </nav>
-
-        <ModeToggle theme={theme} setTheme={setTheme} />
+        
+        {/* Just remove or comment out this line */}
+        {/* <ModeToggle theme={theme} setTheme={setTheme} /> */}
       </div>
     </div>
   );

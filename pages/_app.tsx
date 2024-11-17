@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Bawanan — Frontend</title>
+        <title>Akil's Portfoilo</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="author" content="Marieflor Bawanan"></meta>
         <meta

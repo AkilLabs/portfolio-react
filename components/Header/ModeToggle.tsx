@@ -6,6 +6,7 @@ interface Props {
   theme?: string;
 }
 
+
 export default function ModeToggle({ setTheme, theme }: Props) {
   const isDark = theme === "dark";
 

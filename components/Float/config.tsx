@@ -185,8 +185,138 @@ const about: ShapeConfig[] = [
     opacity: 0.4,
   },
 ];
-
+const articles: ShapeConfig[] = [
+  {
+    icon: <HalfFilledV1 color={Colors.Purple} />,
+    top: 15,
+    left: 10,
+    width: 12,
+    lag: 2,
+    rotate: 45,
+  },
+  {
+    icon: <FullFilled color={Colors.Pink} />,
+    bottom: 20,
+    right: 25,
+    width: 14,
+    lag: 3,
+    rotate: -15,
+  },
+  {
+    icon: <HalfOutline color={Colors.Orange} />,
+    top: 30,
+    right: 8,
+    width: 10,
+    lag: 1,
+    rotate: 60,
+    opacity: 0.7,
+  },
+  {
+    icon: <ArcOutline color={Colors.Beige} />,
+    bottom: 25,
+    left: 20,
+    width: 16,
+    lag: 4,
+    rotate: -30,
+    opacity: 0.6,
+  },
+  {
+    icon: <QuarterFilled color={Colors.Teal} />,
+    top: 45,
+    right: 35,
+    width: 12,
+    lag: 2,
+    rotate: 25,
+  },
+  {
+    icon: <HalfFilledV2 color={Colors.Red} />,
+    bottom: 40,
+    left: 30,
+    width: 14,
+    lag: 3,
+    opacity: 0.8,
+  },
+  {
+    icon: <FullOutline color={Colors.Purple} />,
+    top: 60,
+    right: 15,
+    width: 10,
+    lag: 2,
+    rotate: -45,
+    opacity: 0.6,
+  },
+];  
 const contact: ShapeConfig[] = [
+  {
+    icon: <FullFilled color={Colors.Pink} />,
+    bottom: 10,
+    right: 18,
+    width: 14,
+    lag: 2,
+    rotate: -32,
+  },
+  {
+    icon: <FullOutline color={Colors.Pink} />,
+    bottom: 10,
+    right: 14,
+    width: 14,
+    lag: 4,
+    rotate: -32,
+  },
+  {
+    icon: <QuarterFilled color={Colors.Orange} />,
+    top: 25,
+    right: 14,
+    width: 12,
+    lag: 1,
+    rotate: -132,
+  },
+  {
+    icon: <HalfOutline color={Colors.Orange} />,
+    top: 25,
+    right: 16,
+    width: 12,
+    lag: 1,
+    rotate: -70,
+  },
+  {
+    icon: <HalfFilledV2 color={Colors.Teal} />,
+    bottom: 20,
+    left: 2,
+    width: 10,
+    lag: 1,
+    rotate: 40,
+  },
+  {
+    icon: <HalfOutline color={Colors.Teal} />,
+    bottom: 20,
+    left: 4,
+    width: 12,
+    lag: 1,
+    rotate: 40,
+    opacity: 0.6,
+  },
+  {
+    icon: <ArcOutline color={Colors.Red} />,
+    top: 20,
+    left: 14,
+    width: 14,
+    lag: 3,
+    rotate: 10,
+    opacity: 0.6,
+  },
+  {
+    icon: <FullOutline color={Colors.Red} />,
+    top: 50,
+    left: 40,
+    width: 18,
+    lag: 3,
+    rotate: 10,
+    opacity: 0.6,
+  },
+];
+
+const Skills: ShapeConfig[] = [
   {
     icon: <FullFilled color={Colors.Pink} />,
     bottom: 10,
@@ -324,6 +454,8 @@ const projects: ShapeConfig[] = [
     rotate: 10,
     opacity: 0.6,
   },
+
+
 ];
 
-export { home, about, contact, projects };
+export { home, about, contact, projects, articles, Skills };
