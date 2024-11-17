@@ -14,8 +14,8 @@ const Footer = () => (
   <div className="w-full mt-16 border-t border-white/10">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
-        <h3 className="text-white text-lg font-semibold mb-4">Let's Connect</h3>
-
+        <h3 className="text-white text-lg font-semibold mb-4">Let&apos;s Connect</h3>
+        
         <div className="flex space-x-6">
           <a
             href="https://github.com/AkilLabs"
@@ -65,7 +65,7 @@ export default function Contact() {
 
           <div>
             <Heading size="sm" dark className="font-extrabold">
-              <SplitText text="Let’s keep in touch." />
+              <SplitText text="Let&apos;s keep in touch." />
             </Heading>
 
             <p>

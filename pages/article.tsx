@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { SectionLayout } from "@/components/Layout";
 
@@ -13,7 +14,7 @@ interface LinkedInPostType {
   content: string;
   article?: Article;
   image?: string;
-  url?: string; // Added url property
+  url?: string;
 }
 
 interface LinkedInPostProps {
@@ -25,11 +26,15 @@ const LinkedInPost: React.FC<LinkedInPostProps> = ({ post }) => (
     <div className="space-y-4">
       {post.article && (
         <div className="border border-[#DE5055]/20 rounded-lg overflow-hidden">
-        <img
-          src="/images/post1.jpg"
-          alt="Akil A Profile"
-          className="w-full h-full object-cover"
-        />
+          <div className="relative w-full h-64">
+            <Image
+              src="/images/post1.jpg"
+              alt="Akil A Profile"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
           <div className="p-4 bg-black/50">
             <h4 className="font-semibold text-white">{post.article.title}</h4>
             <p className="text-gray-400 text-sm mt-2">{post.article.excerpt}</p>
@@ -47,11 +52,15 @@ const LinkedInPost: React.FC<LinkedInPostProps> = ({ post }) => (
       
       {post.image && !post.article && (
         <div className="space-y-4">
-          <img 
-            src={post.image} 
-            alt="Post content" 
-            className="w-full h-64 object-cover rounded-lg"
-          />
+          <div className="relative w-full h-64">
+            <Image
+              src={post.image}
+              alt="Post content"
+              fill
+              className="object-cover rounded-lg"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
           <p className="text-white">{post.content}</p>
           <a 
             href={post.url || "#"} 
@@ -71,7 +80,7 @@ const Footer: React.FC = () => (
   <div className="w-full mt-16 border-t border-white/10">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
-        <h3 className="text-white text-lg font-semibold mb-4">Let's Connect</h3>
+        <h3 className="text-white text-lg font-semibold mb-4">Let&apos;s Connect</h3>
        
         <div className="flex space-x-6">
           <a
@@ -120,7 +129,7 @@ const sampleLinkedInPosts: LinkedInPostType[] = [
       excerpt: "Inspired by Vidya Kanagarajan and Rahul Dey's insights on resilience and real-world problem-solving in AI and data.",
       image: "/api/placeholder/600/300"
     },
-    url: "https://www.linkedin.com/posts/akil-a-_microsoft-deloitte-artificialintelligence-activity-7261275380836106241-HsJ3?utm_source=share&utm_medium=member_desktop" // Replace with your actual article URL
+    url: "https://www.linkedin.com/posts/akil-a-_microsoft-deloitte-artificialintelligence-activity-7261275380836106241-HsJ3?utm_source=share&utm_medium=member_desktop"
   },
 ];
 
@@ -133,14 +142,12 @@ const ArticlePage: React.FC = () => {
             Featured Article
           </h1>
           
-          {/* Posts Container - Vertical Stack */}
           <div className="space-y-8">
             {sampleLinkedInPosts.map((post) => (
               <LinkedInPost key={post.id} post={post} />
             ))}
           </div>
           
-          {/* Footer at the bottom */}
           <Footer />
         </div>
       </SectionLayout>

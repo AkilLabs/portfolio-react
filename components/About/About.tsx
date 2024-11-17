@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from 'next/image'; // Add this import
 import { about } from "../Float/config";
 import Float from "../Float/Float";
 import { SectionLayout } from "../Layout";
@@ -12,7 +13,7 @@ const Footer = () => (
   <div className="w-full mt-16 border-t border-white/10">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
-        <h3 className="text-white text-lg font-semibold mb-4">Let's Connect</h3>
+        <h3 className="text-white text-lg font-semibold mb-4">Let&apos;s Connect</h3>
         <div className="flex space-x-6">
           <a
             href="https://github.com/AkilLabs"
@@ -61,51 +62,47 @@ export default function About() {
 
   return (
     <>
-<SectionLayout className="w-full items-center">
-  <div className="relative w-full mb-20 md:mb-0">
-    {/* Profile Photo Circle Container */}
-<div className="absolute right-52 top-32 md:top-28">
-      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
-        <img
-          src="/images/profile.jpg"
-          alt="Akil A Profile"
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </div>
+      <SectionLayout className="w-full items-center">
+        <div className="relative w-full mb-20 md:mb-0">
+          {/* Profile Photo Circle Container */}
+          <div className="absolute right-52 top-32 md:top-28">
+            <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative">
+              <Image
+                src="/images/profile.jpg"
+                alt="Akil A Profile"
+                fill
+                sizes="(max-width: 768px) 160px, 160px"
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-    <div className="w-full px-4 flex flex-col space-y-4 text-sm md:space-y-11 md:pb-0 md:text-lg">
-      <SubHeading dark align={Align.Left}> {/* Changed back to Left */}
-        About
-      </SubHeading>
+          <div className="w-full px-4 flex flex-col space-y-4 text-sm md:space-y-11 md:pb-0 md:text-lg">
+            <SubHeading dark align={Align.Left}>
+              About
+            </SubHeading>
 
-      <Heading size="sm" dark className="font-extrabold flex flex-col items-start"> {/* Changed to items-start */}
-        <span>    Akil A</span>
-        <span>    GenAI | Python Developer |</span>
-        <span>    UI Designer</span>
-      </Heading>
+            <Heading size="sm" dark className="font-extrabold flex flex-col items-start">
+              <span>    Akil A</span>
+              <span>    GenAI | Python Developer |</span>
+              <span>    UI Designer</span>
+            </Heading>
 
-      
-      <p className="w-full whitespace-nowrap md:w-1/2 text-left pl-4 md:pl-6">
-  {`I am a Python developer, RAG model expert, and UI designer, creating elegant, AI-driven solutions for seamless user experiences.`}
-</p>
+            <p className="w-full whitespace-nowrap md:w-1/2 text-left pl-4 md:pl-6">
+              {`I am a Python developer, RAG model expert, and UI designer, creating elegant, AI-driven solutions for seamless user experiences.`}
+            </p>
 
-
-<div
-  className="w-full whitespace-nowrap md:w-1/2 text-left pl-4 md:pl-6"
->
-  Currently, I am a Junior Software Intern,{" "}
-  <span className="font-bold">focusing on the backend and developing project on AI</span>. On a
-  daily basis, I work with<br></br> <MobileTechList />
-  <TechList /> among others, in building a project —{" "}
-  <span className="font-bold">all built from<br></br> the ground up</span>.
-</div>
-
-      
-    </div>
-  </div>
-  <Float config={about} />
-</SectionLayout>
+            <div className="w-full whitespace-nowrap md:w-1/2 text-left pl-4 md:pl-6">
+              Currently, I am a Junior Software Intern,{" "}
+              <span className="font-bold">focusing on the backend and developing project on AI</span>. On a
+              daily basis, I work with<br></br> <MobileTechList />
+              <TechList /> among others, in building a project —{" "}
+              <span className="font-bold">all built from<br></br> the ground up</span>.
+            </div>
+          </div>
+        </div>
+        <Float config={about} />
+      </SectionLayout>
       <Footer />
     </>
   );
