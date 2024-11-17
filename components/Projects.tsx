@@ -150,14 +150,14 @@ export default function Writing() {
       liveUrl: "https://interviewiq.yourdomain.com",
       tools: ["Python", "GenAI", "Streamlit", "Gemini", "CrewAI"]
     },
-    {
-      title: "Project 2",
-      description: "Coming soon.",
-      image: "/images/profile.jpg",
-      githubUrl: "https://github.com/yourusername/project2",
-      liveUrl: "https://project2.yourdomain.com",
-      tools: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"]
-    },
+    // {
+    //   title: "Project 2",
+    //   description: "Coming soon.",
+    //   image: "/images/profile.jpg",
+    //   githubUrl: "https://github.com/yourusername/project2",
+    //   liveUrl: "https://project2.yourdomain.com",
+    //   tools: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"]
+    // },
   ];
 
   return (

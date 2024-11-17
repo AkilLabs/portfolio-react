@@ -65,9 +65,9 @@ export default function About() {
     <>
       <SectionLayout className="w-full max-w-6xl mx-auto px-4 md:px-6">
         <div className="relative w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-          {/* Profile Section */}
-          <div className="w-full md:w-1/3 flex flex-col items-center md:items-start">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative mb-6">
+          {/* Profile Section - Adjusted positioning */}
+          <div className="w-full md:w-1/3 flex flex-col items-center md:items-end md:pr-16">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative mt-16 md:mt-32 mb-6 md:mr-12">
               <img
                 src="/images/profile.jpg"
                 alt="Akil A Profile"
@@ -77,7 +77,7 @@ export default function About() {
           </div>
 
           {/* Content Section */}
-          <div className="w-full md:w-2/3 flex flex-col space-y-4 md:space-y-6">
+          <div className="w-full md:w-2/3 flex flex-col space-y-4 md:space-y-6 md:pt-8">
             <SubHeading dark align={Align.Left}>
               About
             </SubHeading>

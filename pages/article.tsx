@@ -6,82 +6,79 @@ import { SectionLayout } from "@/components/Layout";
 interface Article {
   title: string;
   excerpt: string;
-  image?: string;
+  image: string;
+  url: string;
+  tags?: string[];
 }
 
-interface LinkedInPostType {
-  id: number;
-  content: string;
-  article?: Article;
-  image?: string;
-  url?: string;
+interface ArticleCardProps {
+  article: Article;
 }
 
-interface LinkedInPostProps {
-  post: LinkedInPostType;
-}
+const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => (
+  <div className="w-full mb-16 relative">
+    <div className="group relative">
+      <div className="absolute inset-0 backdrop-blur-md rounded-lg bg-black" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black rounded-lg opacity-20" />
 
-const LinkedInPost: React.FC<LinkedInPostProps> = ({ post }) => (
-  <article className="w-full max-w-3xl mx-auto p-6 rounded-lg bg-black/40 border border-[#DE5055]/20 hover:border-[#DE5055]/40 transition-all duration-300 backdrop-blur-sm">
-    <div className="space-y-4">
-      {post.article && (
-        <div className="border border-[#DE5055]/20 rounded-lg overflow-hidden">
-          <div className="relative w-full h-64">
-            <Image
-              src="/images/post1.jpg"
-              alt="Akil A Profile"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
-          </div>
-          <div className="p-4 bg-black/50">
-            <h4 className="font-semibold text-white">{post.article.title}</h4>
-            <p className="text-gray-400 text-sm mt-2">{post.article.excerpt}</p>
+      <div className="relative border border-white/10 rounded-lg shadow-lg overflow-hidden 
+                    hover:shadow-xl transition-all duration-300 bg-black">
+        <div className="relative w-full h-64">
+          <Image
+            src={article.image}
+            alt={article.title}
+            className="object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
+          />
+        </div>
+        <div className="p-6 backdrop-blur-sm bg-black">
+          <h3 className="text-white text-xl font-semibold mb-2">{article.title}</h3>
+          <p className="text-white mb-4">{article.excerpt}</p>
+          
+          {article.tags && (
+            <div className="mb-6">
+              <div className="flex flex-wrap gap-2">
+                {article.tags.map((tag, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 text-sm bg-[#DE5055]/20 text-[#DE5055] 
+                             rounded-full border border-[#DE5055]/30"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
             <a 
-              href={post.url || "#"} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-block mt-4 px-4 py-2 bg-[#DE5055] hover:bg-[#DE5055]/90 text-white rounded-lg transition-colors duration-300"
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-2 bg-[#DE5055]/80 hover:bg-[#DE5055] 
+                      text-white font-semibold rounded-lg shadow-md 
+                      backdrop-blur-sm transition-all duration-300
+                      hover:shadow-[#DE5055]/20 hover:shadow-lg
+                      text-center"
             >
               Read More
             </a>
           </div>
         </div>
-      )}
-      
-      {post.image && !post.article && (
-        <div className="space-y-4">
-          <div className="relative w-full h-64">
-            <Image
-              src={post.image}
-              alt="Post content"
-              fill
-              className="object-cover rounded-lg"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
-          </div>
-          <p className="text-white">{post.content}</p>
-          <a 
-            href={post.url || "#"} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-block px-4 py-2 bg-[#DE5055] hover:bg-[#DE5055]/90 text-white rounded-lg transition-colors duration-300"
-          >
-            Read More
-          </a>
-        </div>
-      )}
+      </div>
     </div>
-  </article>
+  </div>
 );
 
 const Footer: React.FC = () => (
-  <div className="w-full mt-16 border-t border-white/10">
+  <div className="w-full mt-16 border-t border-white/10 bg-black">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
         <h3 className="text-white text-lg font-semibold mb-4">Let&apos;s Connect</h3>
-       
+        
         <div className="flex space-x-6">
           <a
             href="https://github.com/AkilLabs"
@@ -92,7 +89,7 @@ const Footer: React.FC = () => (
             <Github className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             <span className="hidden sm:inline">GitHub</span>
           </a>
-         
+          
           <a
             href="https://linkedin.com/in/akil-a-"
             target="_blank"
@@ -102,7 +99,7 @@ const Footer: React.FC = () => (
             <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
             <span className="hidden sm:inline">LinkedIn</span>
           </a>
-         
+          
           <a
             href="mailto:akilaskarali@gmail.com"
             className="text-white/70 hover:text-[#DE5055] transition-colors duration-300 flex items-center space-x-2 group"
@@ -111,7 +108,7 @@ const Footer: React.FC = () => (
             <span className="hidden sm:inline">Email</span>
           </a>
         </div>
-       
+        
         <p className="text-white/50 text-sm text-center mt-4">
           © {new Date().getFullYear()} Akil A. All rights reserved.
         </p>
@@ -120,39 +117,36 @@ const Footer: React.FC = () => (
   </div>
 );
 
-const sampleLinkedInPosts: LinkedInPostType[] = [
+const sampleArticles: Article[] = [
   {
-    id: 1,
-    content: "Excited to share my latest article on React performance optimization! Check out the complete guide below 🚀",
-    article: {
-      title: "Inspiring Journeys in AI and Data: Insights from Industry Leaders",
-      excerpt: "Inspired by Vidya Kanagarajan and Rahul Dey's insights on resilience and real-world problem-solving in AI and data.",
-      image: "/api/placeholder/600/300"
-    },
-    url: "https://www.linkedin.com/posts/akil-a-_microsoft-deloitte-artificialintelligence-activity-7261275380836106241-HsJ3?utm_source=share&utm_medium=member_desktop"
+    title: "Inspiring Journeys in AI and Data: Insights from Industry Leaders",
+    excerpt: "Inspired by Vidya Kanagarajan and Rahul Dey's insights on resilience and real-world problem-solving in AI and data.",
+    image: "/images/post1.jpg",
+    url: "https://www.linkedin.com/posts/akil-a-_microsoft-deloitte-artificialintelligence-activity-7261275380836106241-HsJ3",
+
   },
 ];
 
-const ArticlePage: React.FC = () => {
+export default function Articles() {
   return (
-    <div className="min-h-screen bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-black via-[#DE5055]/10 to-black text-white">
-      <SectionLayout>
-        <div className="w-full max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-[#DE5055] to-[#DE5055]/80 bg-clip-text text-transparent mb-12 text-center">
-            Featured Article
-          </h1>
-          
-          <div className="space-y-8">
-            {sampleLinkedInPosts.map((post) => (
-              <LinkedInPost key={post.id} post={post} />
+    <div className="w-full min-h-screen bg-black">
+      <SectionLayout className="w-full items-center relative bg-black">
+        <div className="md:max-w-2/3 flex w-full flex-col items-center space-y-11 bg-black">
+          <div className="w-full">
+            <h2 className="text-sm uppercase tracking-[0.2em] text-white/60 mb-2">
+              articles
+            </h2>
+          </div>
+
+          <div className="w-full max-w-4xl space-y-8">
+            {sampleArticles.map((article, index) => (
+              <ArticleCard key={index} article={article} />
             ))}
           </div>
-          
+
           <Footer />
         </div>
       </SectionLayout>
     </div>
   );
-};
-
-export default ArticlePage;
+}
