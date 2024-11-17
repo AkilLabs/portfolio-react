@@ -1,6 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { articles } from "./Float/config";  // You'll need to add this to your config
+import { articles } from "./Float/config";
 import Float from "./Float/Float";
 import { SectionLayout } from "./Layout";
 import { SplitText } from "./SplitText";
@@ -33,11 +34,16 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 
       <div className="relative border border-white/10 rounded-lg shadow-lg overflow-hidden 
                       hover:shadow-xl transition-all duration-300">
-        <img 
-          src={image} 
-          alt={`${title} Preview`}
-          className="w-full h-64 object-cover"
-        />
+        <div className="relative w-full h-64">
+          <Image 
+            src={image} 
+            alt={`${title} Preview`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+            priority={false}
+          />
+        </div>
         <div className="p-6 backdrop-blur-sm bg-transparent">
           <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
           <div className="flex items-center space-x-4 text-white/60 text-sm mb-4">
@@ -81,14 +87,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   </div>
 );
 
-
-
 export default function Article() {
   const articlesList = [
     {
       title: "Getting Started with AI Development",
       description: "A comprehensive guide to building AI applications with modern tools and frameworks.",
-      image: "/images/ai-dev-preview.jpg",  // Add your image
+      image: "/images/ai-dev-preview.jpg",
       readTime: "5",
       date: "2024-03-15",
       articleUrl: "https://yourblog.com/ai-development",

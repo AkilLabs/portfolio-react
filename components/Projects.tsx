@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { projects } from "./Float/config";
 import Float from "./Float/Float";
@@ -33,10 +34,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="relative border border-white/10 rounded-lg shadow-lg overflow-hidden 
                       hover:shadow-xl transition-all duration-300">
         <div className="relative w-full h-64">
-          <img
+          <Image
             src={image}
             alt={`${title} Preview`}
-            className="w-full h-full object-cover"
+            className="object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
           />
         </div>
         <div className="p-6 backdrop-blur-sm bg-transparent">
@@ -95,7 +99,7 @@ const Footer: React.FC = () => (
   <div className="w-full mt-16 border-t border-white/10">
     <div className="py-8">
       <div className="flex flex-col items-center space-y-4">
-        <h3 className="text-white text-lg font-semibold mb-4">Let's Connect</h3>
+        <h3 className="text-white text-lg font-semibold mb-4">Let&apos;s Connect</h3>
         
         <div className="flex space-x-6">
           <a
@@ -141,7 +145,7 @@ export default function Writing() {
     {
       title: "InterviewIQ AI",
       description: "Personalized AI Interview Preparation",
-      image: "/images/iq.png",  // First project image
+      image: "/images/iq.png",
       githubUrl: "https://github.com/AkilLabs/Interview-IQ",
       liveUrl: "https://interviewiq.yourdomain.com",
       tools: ["Python", "GenAI", "Streamlit", "Gemini", "CrewAI"]
@@ -149,7 +153,7 @@ export default function Writing() {
     {
       title: "Project 2",
       description: "Coming soon.",
-      image: "/images/profile.jpg",  // Second project image
+      image: "/images/profile.jpg",
       githubUrl: "https://github.com/yourusername/project2",
       liveUrl: "https://project2.yourdomain.com",
       tools: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"]
