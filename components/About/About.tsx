@@ -64,29 +64,35 @@ export default function About() {
   return (
     <>
       <SectionLayout className="w-full max-w-6xl mx-auto px-4 md:px-6">
-        <div className="relative w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-          {/* Profile Section - Adjusted positioning */}
-          <div className="w-full md:w-1/3 flex flex-col items-center md:items-end md:pr-16">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative mt-16 md:mt-32 mb-6 md:mr-12">
-              <img
-                src="/images/profile.jpg"
-                alt="Akil A Profile"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+        
+        <div className="relative w-full flex flex-col md:flex-row md:items-start gap-8 md:gap-12 ">
+        <div className="px-0">
+  <SubHeading dark align={Align.Left}>
+    About
+  </SubHeading>
+  
 
-          {/* Content Section */}
-          <div className="w-full md:w-2/3 flex flex-col space-y-4 md:space-y-6 md:pt-8">
-            <SubHeading dark align={Align.Left}>
-              About
-            </SubHeading>
+          {/* Left Column: About Heading and Profile Image */}
+          <div className="w-4/5 md:w-1/4 flex flex-col items-left md:items-start md:pr-10 justify-center px-10">
+  <div className="w-40 h-40 md:w-64 md:h-64 justify-center rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative mt-4 md:mt-8 mb-6">
+    <img
+      src="/images/profile.jpg"
+      alt="Akil A Profile"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>\
+</div>
 
+
+
+          {/* Right Column: About Content */}
+          <div className="w-full md:w-2/3 flex flex-col space-y-4 md:space-y-6 md:pt-8 text-left">
             <div className="space-y-2">
               <Heading size="sm" dark className="font-extrabold">
-                <div className="flex flex-col">
+                <div className="flex flex-col text-left">
                   <span>Akil A</span>
-                  <span>GenAI | Python Developer |</span>
+                  <span>GenAI | Python Developer </span>
                   <span>UI Designer</span>
                 </div>
               </Heading>
