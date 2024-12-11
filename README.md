@@ -15,14 +15,11 @@ This is an attempt to a personal website which should contain things about me as
 
 1. Clone the repo
 
-```
-git clone git@github.com:mariebawanan/marieflor.dev.git
-```
 
 2. Go to project directory
 
 ```
-cd marieflor.dev
+cd AkilLabs.me
 ```
 
 3. Install dependencies
