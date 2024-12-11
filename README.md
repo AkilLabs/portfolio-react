@@ -1,4 +1,4 @@
-# marieflor.dev
+# AkilLabs.me
 
 This is an attempt to a personal website which should contain things about me as a developer - the work that I've been doing and some blog posts about my favorite topics are currently in the works! I will be adding more content throughout the year. :)
 
