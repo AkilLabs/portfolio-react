@@ -10,7 +10,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => (
   <div className="w-full mt-8 md:mt-16 border-t border-white/10">
-    <div className="py-6 md:py-8">
+    <div className="py-6 md:py-4">
       <div className="flex flex-col items-center space-y-4">
         <h3 className="text-white text-base md:text-lg font-semibold mb-2 md:mb-4">
           Let&apos;s Connect
@@ -73,7 +73,7 @@ export default function About() {
   
 
           {/* Left Column: About Heading and Profile Image */}
-          <div className="w-4/5 md:w-1/4 flex flex-col items-left md:items-start md:pr-10 justify-center px-10">
+          <div className="w-4/5 md:w-1/4 flex flex-col items-left md:items-start md:pr-10 justify-center px-20">
   <div className="w-40 h-40 md:w-64 md:h-64 justify-center rounded-full overflow-hidden border-4 border-gray-200 shadow-lg relative mt-4 md:mt-8 mb-6">
     <img
       src="/images/profile.jpg"
@@ -81,7 +81,7 @@ export default function About() {
       className="w-full h-full object-cover"
     />
   </div>
-</div>\
+</div>
 </div>
 
 
