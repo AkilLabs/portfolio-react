@@ -120,9 +120,6 @@ export default function About() {
               <div className="hidden md:block">
                 <TechList />
               </div>
-              <p>
-                <span className="font-bold">All built from the ground up</span>.
-              </p>
             </div>
           </div>
         </div>
